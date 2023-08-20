@@ -21,11 +21,16 @@ namespace Sitecore.Project.MVC.Web.Controllers
             CarouselModel model = new CarouselModel();
             List<Slide> slides = new List<Slide>();
 
-            if(slidesField?.Count > 0 )
+            //Rendering parameters
+            var slideCountParameter = RenderingContext.Current?.Rendering.Parameters["SlideCount"];
+            int.TryParse(slideCountParameter, out int count);
+            int slideCount = count == 0 ? 1 : count;
+
+            if (slidesField?.Count > 0 )
             {
                 var slideItems = slidesField.GetItems();
 
-                foreach( var slideItem in slideItems )
+                foreach( var slideItem in slideItems.Take(slideCount))
                 {
                     var title = new MvcHtmlString(FieldRenderer.Render
                       (slideItem, "Title"));
