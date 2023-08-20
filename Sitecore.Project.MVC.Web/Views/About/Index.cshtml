@@ -1,0 +1,56 @@
+﻿
+@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation;
+@using Sitecore.Project.MVC.Web.Models;
+@model AboutViewModel
+
+@if (Model != null && Model.Item != null)
+{
+    <!-- About Start -->
+    <div class="container-fluid bg-light overflow-hidden my-5 px-lg-0">
+        <div class="container about px-lg-0">
+            <div class="row g-0 mx-lg-0">
+                <div class="col-lg-6 ps-lg-0" style="min-height: 400px;">
+                    <div class="position-relative h-100">
+                        @Html.Sitecore().Field("{25AF3B19-FD1B-4BDE-A6D5-44BBA8123B4F}", Model.Item, new {@class = "position-absolute img-fluid w-100 h-100"})
+                    </div>
+                </div>
+                <div class="col-lg-6 about-text py-5 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="p-lg-5 pe-lg-0">
+                        <div class="section-title text-start">
+                            <h1 class="display-5 mb-4">@Html.Sitecore().Field("Title", Model.Item)</h1>
+                        </div>
+                        <p class="mb-4 pb-2">@Html.Sitecore().Field("Description", Model.Item)</p>
+                        <div class="row g-4 mb-4 pb-2">
+                            <div class="col-sm-6 wow fadeIn" data-wow-delay="0.1s">
+                                <div class="d-flex align-items-center">
+                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white" style="width: 60px; height: 60px;">
+                                        <i class="fa fa-users fa-2x text-primary"></i>
+                                    </div>
+                                    <div class="ms-3">
+                                        <h2 class="text-primary mb-1">@Html.Sitecore().Field("{9828648E-9BCE-4485-806C-7FA7DE0C29EC}", Model.Item)</h2>
+                                        <p class="fw-medium mb-0">Happy Clients</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 wow fadeIn" data-wow-delay="0.3s">
+                                <div class="d-flex align-items-center">
+                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white" style="width: 60px; height: 60px;">
+                                        <i class="fa fa-check fa-2x text-primary"></i>
+                                    </div>
+                                    <div class="ms-3">
+                                        <h2 class="text-primary mb-1">@Html.Sitecore().Field("{51683637-3A02-4E33-A475-F337967F42E3}", Model.Item)</h2>
+                                        <p class="fw-medium mb-0">Projects Done</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @Html.Sitecore().Field("Call_To_Action", new {@class = "btn btn-primary py-3 px-5" })
+                        @*<a href="" class="btn btn-primary py-3 px-5">Explore More</a>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+}
