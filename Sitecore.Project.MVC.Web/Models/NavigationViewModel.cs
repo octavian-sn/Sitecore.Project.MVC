@@ -15,6 +15,7 @@ namespace Sitecore.Project.MVC.Web.Models
         public string NavigationTitle { get; set; }
         public string NavigationUrl { get; set; }
         public string ActiveClass { get; set; }
+        public List<Navigation> ChildNavigations { get; set; }
 
     }
 }
