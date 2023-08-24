@@ -1,0 +1,28 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@using Sitecore.Project.MVC.Web.Models
+@model FeatureModel
+
+@if (Model != null && Model.Features != null && Model.Features.Count > 1)
+{
+    <!-- Feature Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5">
+                @for (int i = 0; i < Model.Features.Count; i++)
+                {
+                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <div class="d-flex align-items-center justify-content-center bg-light" style="width: 60px; height: 60px;">
+                                <i class="fa @{@Model.Features[i].Icon} fa-2x text-primary"></i>
+                            </div>
+                            <h1 class="display-1 text-light mb-0">@((i+1).ToString("D2"))</h1>
+                        </div>
+                        <h5>@Model.Features[i].Title</h5>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <!-- Feature Start -->
+}
