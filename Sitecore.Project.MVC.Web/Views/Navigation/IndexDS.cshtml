@@ -18,11 +18,11 @@
                     if (navigation.ChildNavigations != null && navigation.ChildNavigations.Count > 0)
                     {
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                            <a href="@navigation.NavigationUrl" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">@navigation.NavigationTitle</a>
                             <div class="dropdown-menu fade-up m-0">
                                 @foreach (var childNavigation in navigation.ChildNavigations)
                                 {
-                                    <a href="" class="dropdown-item">@childNavigation.NavigationTitle</a>
+                                    <a href="@childNavigation.NavigationUrl" class="dropdown-item">@childNavigation.NavigationTitle</a>
                                 }
                             </div>
                         </div>
