@@ -20,7 +20,8 @@ namespace Sitecore.Project.MVC.Web.Controllers
             {
                 Title = new MvcHtmlString(FieldRenderer.Render(dataSource, "Title")),
                 Description = new MvcHtmlString(FieldRenderer.Render(dataSource, "Description")),
-                Image = new MvcHtmlString(FieldRenderer.Render(dataSource, "Image", "class=position-absolute img-fluid w-100 h-100"))
+                Image = new MvcHtmlString(FieldRenderer.Render(dataSource, "Image", 
+                "class=position-absolute img-fluid w-100 h-100,\" style=\"object-fit: cover;"))
             };
 
             return View(model);
