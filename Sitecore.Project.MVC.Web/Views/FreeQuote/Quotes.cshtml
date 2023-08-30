@@ -1,0 +1,20 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation;
+@using Sitecore.Project.MVC.Web.Models;
+@using Sitecore.Project.MVC.Web.Db;
+@model List<Quote>
+
+@foreach (var quote in Model)
+{
+    <p>@quote.Name</p>
+}
+@if (Model != null && Model.Count > 1)
+{
+    <div class="container-fluid bg-light overflow-hidden my-5 px-lg-0">
+        <div class="container quote px-lg-0">
+            <div class="row g-0 mx-lg-0">
+                
+            </div>
+        </div>
+    </div>
+}
