@@ -4,17 +4,41 @@
 @using Sitecore.Project.MVC.Web.Db;
 @model List<Quote>
 
-@foreach (var quote in Model)
-{
-    <p>@quote.Name</p>
-}
+@{ int index = 0; }
+
 @if (Model != null && Model.Count > 1)
 {
     <div class="container-fluid bg-light overflow-hidden my-5 px-lg-0">
         <div class="container quote px-lg-0">
             <div class="row g-0 mx-lg-0">
-                
+                        <table class="table w-75 mx-auto">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Mobile</th>
+                                    <th scope="col">Service</th>
+                                    <th scope="col">Note</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (Quote quote in Model)
+                                {
+                                    <tr>
+                                        <th scope="row">@index</th>
+                                        <td>@quote.Name</td>
+                                        <td>@quote.Email</td>
+                                        <td>@quote.Mobile</td>
+                                        <td>@quote.Service</td>
+                                        <td>@quote.Note</td>
+                                    </tr>
+                                    index++;
+                                }
+                            </tbody>
+                        </table>
             </div>
         </div>
     </div>
+
 }
